@@ -1,10 +1,10 @@
+// 12-createReportObject.js
+
 export default function createReportObject(employeesList) {
-	// Retourner l'objet avec 'allEmployees' et une méthode 'getNumberOfDepartments'
 	return {
-	  allEmployees: employeesList, // Contient tous les départements et les employés
+	  allEmployees: employeesList,
 	  getNumberOfDepartments: function() {
-		// Utilise 'Object.keys' pour obtenir un tableau des clés (départements) et retourne la longueur
 		return Object.keys(this.allEmployees).length;
-	  }
+	  },
 	};
   }
