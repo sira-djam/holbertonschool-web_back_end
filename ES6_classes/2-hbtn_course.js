@@ -1,36 +1,44 @@
-export default class HolbertonCourse {
-	constructor(name, length, students) {
-	  this.name = name;
-	  this.length = length;
-	  this.students = students;
-	}
+Implement a class named HolbertonCourse:
 
-	get name() {
-	  return this._name;
-	}
+Constructor attributes:
+name (String)
+length (Number)
+students (array of Strings)
+Make sure to verify the type of attributes during object creation
+Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
+Implement a getter and setter for each attribute.
+bob@dylan:~$ cat 2-main.js
+import HolbertonCourse from "./2-hbtn_course.js";
 
-	set name(value) {
-	  if (typeof value !== 'string') {
-		throw new TypeError('Name must be a string');
-	  }
-	  this._name = value;
-	}
+const c1 = new HolbertonCourse("ES6", 1, ["Bob", "Jane"])
+console.log(c1.name);
+c1.name = "Python 101";
+console.log(c1);
 
-	get length() {
-	  return this._length;
-	}
+try {
+    c1.name = 12;
+}
+catch(err) {
+    console.log(err);
+}
 
-	set length(value) {
-	  if (typeof value !== 'number') {
-		throw new TypeError('Length must be a number');
-	  }
-	  this._length = value;
-	}
+try {
+    const c2 = new HolbertonCourse("ES6", "1", ["Bob", "Jane"]);
+}
+catch(err) {
+    console.log(err);
+}
 
-	get students() {
-	  return this._students;
-	}
-
-	set students(value) {
-	  if (!Array.isArray(value) || !value.every(student => typeof student === 'string')) {
-		throw new TypeError('Students
+bob@dylan:~$
+bob@dylan:~$ npm run dev 2-main.js
+ES6
+HolbertonCourse {
+  _name: 'Python 101',
+  _length: 1,
+  _students: [ 'Bob', 'Jane' ]
+}
+TypeError: Name must be a string
+    ...
+TypeError: Length must be a number
+    ...
+bob@dylan:~$ 
